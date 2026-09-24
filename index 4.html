@@ -385,79 +385,11 @@
 
     .book-cover {
       width: min(100%, 300px);
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-      background: #ffffff;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
       border-radius: 14px;
       box-shadow: 0 18px 35px rgba(8,37,77,.17);
       border: 1px solid #dae5f0;
-    }
-
-    /* Preview cover besar saat mouse diarahkan ke cover */
-    .book-cover {
-      cursor: zoom-in;
-      transition: transform .22s ease, box-shadow .22s ease;
-    }
-
-    .book-cover:hover {
-      transform: scale(1.025);
-      box-shadow: 0 22px 44px rgba(8,37,77,.22);
-    }
-
-    .cover-hover-preview {
-      position: fixed;
-      z-index: 3000;
-      display: none;
-      pointer-events: none;
-      padding: 12px;
-      background: rgba(255,255,255,.98);
-      border: 1px solid rgba(8,37,77,.14);
-      border-radius: 18px;
-      box-shadow: 0 28px 70px rgba(5,31,64,.28);
-      backdrop-filter: blur(10px);
-      opacity: 0;
-      transform: translateY(8px) scale(.985);
-      transition: opacity .14s ease, transform .14s ease;
-    }
-
-    .cover-hover-preview.show {
-      display: block;
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .cover-hover-preview img {
-      display: block;
-      width: auto;
-      height: auto;
-      max-width: min(430px, 42vw);
-      max-height: 78vh;
-      object-fit: contain;
-      border-radius: 10px;
-      background: #fff;
-    }
-
-    .cover-hover-preview-label {
-      margin-top: 9px;
-      text-align: center;
-      color: var(--navy-900);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .01em;
-    }
-
-    @media (hover: none), (pointer: coarse) {
-      .cover-hover-preview {
-        display: none !important;
-      }
-
-      .book-cover {
-        cursor: default;
-      }
-
-      .book-cover:hover {
-        transform: none;
-      }
     }
 
     .book-body {
@@ -927,7 +859,7 @@
             <h2>Katalog eBook</h2>
             <p>Cari berdasarkan judul, penulis, topik, pendekatan, atau software.</p>
           </div>
-          <div class="book-counter"><span id="visibleCount">3</span> eBook ditemukan</div>
+          <div class="book-counter"><span id="visibleCount">2</span> eBook ditemukan</div>
         </div>
 
         <div class="search-panel">
@@ -937,7 +869,7 @@
               <input
                 id="searchInput"
                 type="search"
-                placeholder="Contoh: SmartPLS, CB-SEM, SPSS, Minitab, regresi, SEM, second order..."
+                placeholder="Contoh: SmartPLS, SPSS, Minitab, regresi, SEM, second order..."
                 autocomplete="off"
               />
             </label>
@@ -962,13 +894,6 @@
       <div>Katalog eBook • Statistika • Analisis Data • Metodologi Penelitian</div>
     </div>
   </footer>
-
-
-  <!-- Preview cover besar saat hover (desktop/laptop) -->
-  <div class="cover-hover-preview" id="coverHoverPreview" aria-hidden="true">
-    <img id="coverHoverPreviewImg" src="" alt="">
-    <div class="cover-hover-preview-label">Preview Cover</div>
-  </div>
 
   <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-panel">
@@ -2188,179 +2113,6 @@
                               ]
                       }
               ]
-      },
-      {
-            "id": 3,
-            "slug": "cb-sem-smartpls-second-order",
-            "title": "Covariance Based Structural Equation Modeling (CB-SEM) dengan Software SmartPLS",
-            "shortTitle": "CB-SEM dengan SmartPLS: Kasus Second Order",
-            "subtitle": "Alternatif Software AMOS & LISREL • Praktek Olah Data dan Cara Baca Hasil • Dilengkapi Tutorial Video Youtube + Data Latihan",
-            "author": "Prana Ugiana Gio",
-            "category": "CB-SEM",
-            "tags": [
-                  "CB-SEM",
-                  "SmartPLS",
-                  "Second Order",
-                  "AMOS & LISREL"
-            ],
-            "keywords": [
-                  "CB-SEM",
-                  "CB SEM",
-                  "Covariance Based Structural Equation Modeling",
-                  "Structural Equation Modeling",
-                  "SEM",
-                  "SmartPLS",
-                  "AMOS",
-                  "LISREL",
-                  "Second Order",
-                  "measurement model",
-                  "model pengukuran",
-                  "validitas",
-                  "reliabilitas",
-                  "goodness of fit",
-                  "model fit",
-                  "mediasi",
-                  "multiple mediation",
-                  "path analysis",
-                  "motivasi kerja",
-                  "lingkungan kerja",
-                  "disiplin kerja",
-                  "budaya organisasi",
-                  "kinerja pegawai",
-                  "gaya kepemimpinan",
-                  "kompensasi",
-                  "kepuasan kerja",
-                  "gaya kepemimpinan transformasional",
-                  "kinerja karyawan",
-                  "kecerdasan emosional",
-                  "etika kerja",
-                  "Prana Ugiana Gio"
-            ],
-            "price": 24000,
-            "purchaseLink": "https://lynk.id/statkomat/glpl900kdje7",
-            "cover": "cover/cover 3.png",
-            "features": [
-                  "3 Contoh Kasus CB-SEM Second Order",
-                  "Praktek Olah Data dengan SmartPLS",
-                  "Alternatif Software AMOS & LISREL",
-                  "Tutorial Video Youtube + Data Latihan"
-            ],
-            "contents": [
-                  {
-                        "title": "Contoh Kasus 1: Belajar Olah Data dengan SmartPLS untuk Kasus Second Order: Pengaruh Motivasi Kerja, Lingkungan Kerja, Disiplin Kerja, Budaya Organisasi terhadap Kinerja Pegawai dengan Gaya Kepemimpinan Sebagai Variabel Mediasi",
-                        "youtube": "",
-                        "items": [
-                              [
-                                    "Contoh Kasus 1: Belajar Olah Data dengan SmartPLS untuk Kasus Second Order: Pengaruh Motivasi Kerja, Lingkungan Kerja, Disiplin Kerja, Budaya Organisasi terhadap Kinerja Pegawai dengan Gaya Kepemimpinan Sebagai Variabel Mediasi",
-                                    "1"
-                              ],
-                              [
-                                    "1.1 Model SEM Second Order & Definisi Operasional Variabel",
-                                    "1"
-                              ],
-                              [
-                                    "1.2 Data Latihan",
-                                    "5"
-                              ],
-                              [
-                                    "1.3 Metode Analis Data & Software",
-                                    "15"
-                              ],
-                              [
-                                    "1.4 Pengujian Model Pengukuran (Measurement Model): Validitas dan Reliabilitas Tahap First Order",
-                                    "16"
-                              ],
-                              [
-                                    "1.5 Pengujian Model Pengukuran (Measurement Model): Validitas dan Reliabilitas Tahap Second Order",
-                                    "24"
-                              ],
-                              [
-                                    "1.6 Pengujian Kecocokkan Model Secara Keseluruhan (Goodness of Fit Model)",
-                                    "28"
-                              ],
-                              [
-                                    "1.7 Pengujian Hipotesis",
-                                    "29"
-                              ]
-                        ]
-                  },
-                  {
-                        "title": "Contoh Kasus 2: Belajar Olah Data dengan SmartPLS untuk Kasus Second Order: Pengaruh Kompensasi, Kepuasan Kerja, Gaya Kepemimpinan Transformasional terhadap Kinerja Karyawan",
-                        "youtube": "",
-                        "items": [
-                              [
-                                    "Contoh Kasus 2: Belajar Olah Data dengan SmartPLS untuk Kasus Second Order: Pengaruh Kompensasi, Kepuasan Kerja, Gaya Kepemimpinan Transformasional terhadap Kinerja Karyawan",
-                                    "35"
-                              ],
-                              [
-                                    "2.1 Model SEM Second Order & Definisi Operasional Variabel",
-                                    "35"
-                              ],
-                              [
-                                    "2.1 Data Latihan",
-                                    "38"
-                              ],
-                              [
-                                    "2.3 Metode Analis Data & Software",
-                                    "44"
-                              ],
-                              [
-                                    "2.4 Pengujian Model Pengukuran (Measurement Model): Validitas dan Reliabilitas Tahap First Order",
-                                    "45"
-                              ],
-                              [
-                                    "2.5 Pengujian Model Pengukuran (Measurement Model): Validitas dan Reliabilitas Tahap Second Order",
-                                    "50"
-                              ],
-                              [
-                                    "2.6 Pengujian Kecocokkan Model Secara Keseluruhan (Goodness of Fit Model)",
-                                    "54"
-                              ],
-                              [
-                                    "2.7 Pengujian Hipotesis",
-                                    "55"
-                              ]
-                        ]
-                  },
-                  {
-                        "title": "Contoh Kasus 3: Belajar Olah Data dengan SmartPLS untuk Kasus Second Order: Pengaruh Kecerdasan Emosional (X1), Lingkungan Kerja (X2) terhadap Kinerja Pegawai (Y) dengan Motivasi Kerja (M1), Etika Kerja (M2) Sebagai Variabel Mediasi (Kasus Multiple Mediation)",
-                        "youtube": "",
-                        "items": [
-                              [
-                                    "Contoh Kasus 3: Belajar Olah Data dengan SmartPLS untuk Kasus Second Order: Pengaruh Kecerdasan Emosional (X1), Lingkungan Kerja (X2) terhadap Kinerja Pegawai (Y) dengan Motivasi Kerja (M1), Etika Kerja (M2) Sebagai Variabel Mediasi (Kasus Multiple Mediation)",
-                                    "57"
-                              ],
-                              [
-                                    "3.1 Model SEM Second Order & Definisi Operasional Variabel",
-                                    "57"
-                              ],
-                              [
-                                    "3.2 Data Latihan",
-                                    "60"
-                              ],
-                              [
-                                    "3.3 Metode Analis Data & Software",
-                                    "71"
-                              ],
-                              [
-                                    "3.4 Pengujian Model Pengukuran (Measurement Model): Validitas dan Reliabilitas Tahap First Order",
-                                    "72"
-                              ],
-                              [
-                                    "3.5 Pengujian Model Pengukuran (Measurement Model): Validitas dan Reliabilitas Tahap Second Order",
-                                    "77"
-                              ],
-                              [
-                                    "3.6 Pengujian Kecocokkan Model Secara Keseluruhan (Goodness of Fit Model)",
-                                    "81"
-                              ],
-                              [
-                                    "3.7 Pengujian Hipotesis",
-                                    "82"
-                              ]
-                        ]
-                  }
-            ]
       }
     ];
 
@@ -2576,74 +2328,6 @@
 
     renderFilters();
     renderBooks();
-
-    // ============================================================
-    // PREVIEW COVER BESAR SAAT HOVER
-    // ============================================================
-    const coverPreview = document.getElementById("coverHoverPreview");
-    const coverPreviewImg = document.getElementById("coverHoverPreviewImg");
-
-    function positionCoverPreview(event) {
-      if (!coverPreview.classList.contains("show")) return;
-
-      const gap = 22;
-      const rect = coverPreview.getBoundingClientRect();
-
-      let left = event.clientX + gap;
-      let top = event.clientY - rect.height / 2;
-
-      // Jika ruang di sebelah kanan tidak cukup, pindahkan ke kiri cursor.
-      if (left + rect.width > window.innerWidth - 14) {
-        left = event.clientX - rect.width - gap;
-      }
-
-      // Jaga agar preview tetap berada di dalam viewport.
-      left = Math.max(14, Math.min(left, window.innerWidth - rect.width - 14));
-      top = Math.max(14, Math.min(top, window.innerHeight - rect.height - 14));
-
-      coverPreview.style.left = `${left}px`;
-      coverPreview.style.top = `${top}px`;
-    }
-
-    function bindCoverHoverPreview() {
-      document.querySelectorAll(".book-cover").forEach(img => {
-        if (img.dataset.previewBound === "1") return;
-        img.dataset.previewBound = "1";
-
-        img.addEventListener("mouseenter", event => {
-          if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
-
-          coverPreviewImg.src = img.currentSrc || img.src;
-          coverPreviewImg.alt = img.alt || "Preview cover eBook";
-          coverPreview.classList.add("show");
-          coverPreview.setAttribute("aria-hidden", "false");
-
-          // Beri waktu browser membaca ukuran gambar sebelum menentukan posisi.
-          requestAnimationFrame(() => positionCoverPreview(event));
-        });
-
-        img.addEventListener("mousemove", positionCoverPreview);
-
-        img.addEventListener("mouseleave", () => {
-          coverPreview.classList.remove("show");
-          coverPreview.setAttribute("aria-hidden", "true");
-        });
-      });
-    }
-
-    // Bind saat pertama kali katalog dirender.
-    bindCoverHoverPreview();
-
-    // Karena renderBooks() mengganti isi katalog saat search/filter,
-    // bind ulang setiap kali hasil katalog berubah.
-    const originalRenderBooks = renderBooks;
-    renderBooks = function() {
-      originalRenderBooks();
-      bindCoverHoverPreview();
-    };
-
-    // Pastikan hasil awal tetap terikat setelah fungsi dibungkus ulang.
-    bindCoverHoverPreview();
 
     window.openBookDetail = openBookDetail;
   </script>

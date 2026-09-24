@@ -393,73 +393,6 @@
       border: 1px solid #dae5f0;
     }
 
-    /* Preview cover besar saat mouse diarahkan ke cover */
-    .book-cover {
-      cursor: zoom-in;
-      transition: transform .22s ease, box-shadow .22s ease;
-    }
-
-    .book-cover:hover {
-      transform: scale(1.025);
-      box-shadow: 0 22px 44px rgba(8,37,77,.22);
-    }
-
-    .cover-hover-preview {
-      position: fixed;
-      z-index: 3000;
-      display: none;
-      pointer-events: none;
-      padding: 12px;
-      background: rgba(255,255,255,.98);
-      border: 1px solid rgba(8,37,77,.14);
-      border-radius: 18px;
-      box-shadow: 0 28px 70px rgba(5,31,64,.28);
-      backdrop-filter: blur(10px);
-      opacity: 0;
-      transform: translateY(8px) scale(.985);
-      transition: opacity .14s ease, transform .14s ease;
-    }
-
-    .cover-hover-preview.show {
-      display: block;
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .cover-hover-preview img {
-      display: block;
-      width: auto;
-      height: auto;
-      max-width: min(430px, 42vw);
-      max-height: 78vh;
-      object-fit: contain;
-      border-radius: 10px;
-      background: #fff;
-    }
-
-    .cover-hover-preview-label {
-      margin-top: 9px;
-      text-align: center;
-      color: var(--navy-900);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .01em;
-    }
-
-    @media (hover: none), (pointer: coarse) {
-      .cover-hover-preview {
-        display: none !important;
-      }
-
-      .book-cover {
-        cursor: default;
-      }
-
-      .book-cover:hover {
-        transform: none;
-      }
-    }
-
     .book-body {
       padding: 20px;
       display: flex;
@@ -962,13 +895,6 @@
       <div>Katalog eBook • Statistika • Analisis Data • Metodologi Penelitian</div>
     </div>
   </footer>
-
-
-  <!-- Preview cover besar saat hover (desktop/laptop) -->
-  <div class="cover-hover-preview" id="coverHoverPreview" aria-hidden="true">
-    <img id="coverHoverPreviewImg" src="" alt="">
-    <div class="cover-hover-preview-label">Preview Cover</div>
-  </div>
 
   <div class="modal" id="bookModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-panel">
@@ -2576,74 +2502,6 @@
 
     renderFilters();
     renderBooks();
-
-    // ============================================================
-    // PREVIEW COVER BESAR SAAT HOVER
-    // ============================================================
-    const coverPreview = document.getElementById("coverHoverPreview");
-    const coverPreviewImg = document.getElementById("coverHoverPreviewImg");
-
-    function positionCoverPreview(event) {
-      if (!coverPreview.classList.contains("show")) return;
-
-      const gap = 22;
-      const rect = coverPreview.getBoundingClientRect();
-
-      let left = event.clientX + gap;
-      let top = event.clientY - rect.height / 2;
-
-      // Jika ruang di sebelah kanan tidak cukup, pindahkan ke kiri cursor.
-      if (left + rect.width > window.innerWidth - 14) {
-        left = event.clientX - rect.width - gap;
-      }
-
-      // Jaga agar preview tetap berada di dalam viewport.
-      left = Math.max(14, Math.min(left, window.innerWidth - rect.width - 14));
-      top = Math.max(14, Math.min(top, window.innerHeight - rect.height - 14));
-
-      coverPreview.style.left = `${left}px`;
-      coverPreview.style.top = `${top}px`;
-    }
-
-    function bindCoverHoverPreview() {
-      document.querySelectorAll(".book-cover").forEach(img => {
-        if (img.dataset.previewBound === "1") return;
-        img.dataset.previewBound = "1";
-
-        img.addEventListener("mouseenter", event => {
-          if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
-
-          coverPreviewImg.src = img.currentSrc || img.src;
-          coverPreviewImg.alt = img.alt || "Preview cover eBook";
-          coverPreview.classList.add("show");
-          coverPreview.setAttribute("aria-hidden", "false");
-
-          // Beri waktu browser membaca ukuran gambar sebelum menentukan posisi.
-          requestAnimationFrame(() => positionCoverPreview(event));
-        });
-
-        img.addEventListener("mousemove", positionCoverPreview);
-
-        img.addEventListener("mouseleave", () => {
-          coverPreview.classList.remove("show");
-          coverPreview.setAttribute("aria-hidden", "true");
-        });
-      });
-    }
-
-    // Bind saat pertama kali katalog dirender.
-    bindCoverHoverPreview();
-
-    // Karena renderBooks() mengganti isi katalog saat search/filter,
-    // bind ulang setiap kali hasil katalog berubah.
-    const originalRenderBooks = renderBooks;
-    renderBooks = function() {
-      originalRenderBooks();
-      bindCoverHoverPreview();
-    };
-
-    // Pastikan hasil awal tetap terikat setelah fungsi dibungkus ulang.
-    bindCoverHoverPreview();
 
     window.openBookDetail = openBookDetail;
   </script>
